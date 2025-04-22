@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de Gestão de Inspeção - Corpo de Bombeiros Militar">
+  <meta name="theme-color" content="#b91c1c">
+  
+  <title>Sistema de Gestão de Inspeção - CBMERJ</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/logo192.png" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            red: {
+              500: '#ef4444',
+              600: '#dc2626',
+              700: '#b91c1c',
+              800: '#991b1b',
+              900: '#7f1d1d'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Manifest para PWA -->
+  <link rel="manifest" href="/manifest.json" />
+  
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    #loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      background-color: #f3f4f6;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+      transition: opacity 0.5s, visibility 0.5s;
+    }
+    
+    .loader {
+      border: 5px solid #f3f4f6;
+      border-radius: 50%;
+      border-top: 5px solid #b91c1c;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Loading Spinner -->
+  <div id="loading">
+    <div style="text-align: center;">
+      <div class="loader"></div>
+      <p style="margin-top: 20px; color: #4b5563; font-weight: 500;">Carregando Sistema...</p>
+    </div>
+  </div>
+  
+  <!-- Container da aplicação React -->
+  <div id="root"></div>
+  
+  <!-- Scripts -->
+  <script>
+    // Remover loading spinner quando a página carregar
+    window.addEventListener('load', function() {
+      const loader = document.getElementById('loading');
+      if (loader) {
+        loader.style.opacity = 0;
+        loader.style.visibility = 'hidden';
+      }
+    });
+  </script>
+  
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.20.0/firebase-auth-compat.js"></script>
+  
+  <!-- Recharts -->
+  <script src="https://unpkg.com/recharts/umd/Recharts.min.js"></script>
+  
+  <!-- React, ReactDOM e Babel -->
+  <script crossorigin src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+  
+  <!-- Arquivo principal da aplicação -->
+  <script src="/App.js" type="module"></script>
+  
+  <!-- Script para iniciar a aplicação -->
+  <script type="module">
+    import App from './App.js';
+    
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(React.createElement(App));
+  </script>
+</body>
+</html>
