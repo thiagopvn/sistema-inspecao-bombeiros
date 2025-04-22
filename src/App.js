@@ -6,12 +6,13 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 
 // Configuração do Firebase
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID
+  apiKey: "AIzaSyCgSk051-U17EeYLDZ3k3-67C9XFX4gUUc",
+  authDomain: "sistema-inspecao-bombeiros.firebaseapp.com",
+  projectId: "sistema-inspecao-bombeiros",
+  storageBucket: "sistema-inspecao-bombeiros.firebasestorage.app",
+  messagingSenderId: "777907321239",
+  appId: "1:777907321239:web:1030a1adf6b0b8577d6cd2",
+  measurementId: "G-6ZNFPTR3F6"
 };
 
 // Inicialização do Firebase
